@@ -5,10 +5,10 @@
 }
 
 :root {
-    --primary: #1f217a;
-    --primary-light: #2d2f92;
+    --primary: #3c72d0;
+    --primary-light: #237b9b;
     --accent: #e63946;
-    --text: #1a1a2e;
+    --text: #679eb6;
     --bg: #f0f2f5;
     --white: #fff;
     --shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
@@ -16,7 +16,7 @@
 }
 
 body {
-    font-family: 'Be Vietnam Pro', -apple-system, sans-serif;
+    font-family: 'Roboto', -apple-system, sans-serif;
     background: var(--bg);
     color: var(--text);
     line-height: 1.5;
@@ -332,8 +332,8 @@ body {
     color: var(--primary);
 }
 
-.sidebar-item:hover > .sidebar-submenu,
-.sidebar-item.open > .sidebar-submenu {
+.sidebar-item:hover>.sidebar-submenu,
+.sidebar-item.open>.sidebar-submenu {
     display: block;
 }
 
@@ -842,14 +842,37 @@ body {
     opacity: 0.9;
 }
 
-.brand-logo-item.acer { color: #7cb342; }
-.brand-logo-item.hp { color: #0077d8; }
-.brand-logo-item.amd { color: #000; }
-.brand-logo-item.intel { color: #0071c5; }
-.brand-logo-item.msi { color: #d32f2f; }
-.brand-logo-item.samsung { color: #1428a0; }
-.brand-logo-item.lenovo { color: #e60012; }
-.brand-logo-item.asus { color: #00539b; }
+.brand-logo-item.acer {
+    color: #7cb342;
+}
+
+.brand-logo-item.hp {
+    color: #0077d8;
+}
+
+.brand-logo-item.amd {
+    color: #000;
+}
+
+.brand-logo-item.intel {
+    color: #0071c5;
+}
+
+.brand-logo-item.msi {
+    color: #d32f2f;
+}
+
+.brand-logo-item.samsung {
+    color: #1428a0;
+}
+
+.brand-logo-item.lenovo {
+    color: #e60012;
+}
+
+.brand-logo-item.asus {
+    color: #00539b;
+}
 
 /* Footer */
 .footer {
@@ -920,6 +943,13 @@ body {
     box-shadow: var(--shadow);
 }
 
+.map-embed {
+    margin-top: 10px;
+    border-radius: 8px;
+    overflow: hidden;
+    display: block;
+}
+
 .footer-bottom {
     max-width: 1200px;
     margin: 0 auto;
@@ -947,10 +977,21 @@ body {
     text-transform: uppercase;
 }
 
-.pay.visa { color: #1a1f71; }
-.pay.master { color: #eb001b; }
-.pay.jcb { color: #0060a9; }
-.pay.cod { color: #0f766e; }
+.pay.visa {
+    color: #1a1f71;
+}
+
+.pay.master {
+    color: #eb001b;
+}
+
+.pay.jcb {
+    color: #0060a9;
+}
+
+.pay.cod {
+    color: #0f766e;
+}
 
 .footer-copy {
     font-size: 12px;
@@ -999,10 +1040,21 @@ body {
     color: #ffd93d;
 }
 
-.promo-1 { background: linear-gradient(145deg, #2d2f92, #1f217a); }
-.promo-2 { background: linear-gradient(145deg, #2563eb, #1d4ed8); }
-.promo-3 { background: linear-gradient(145deg, #7c3aed, #6d28d9); }
-.promo-4 { background: linear-gradient(145deg, #059669, #047857); }
+.promo-1 {
+    background: linear-gradient(145deg, #2d2f92, #1f217a);
+}
+
+.promo-2 {
+    background: linear-gradient(145deg, #2563eb, #1d4ed8);
+}
+
+.promo-3 {
+    background: linear-gradient(145deg, #7c3aed, #6d28d9);
+}
+
+.promo-4 {
+    background: linear-gradient(145deg, #059669, #047857);
+}
 
 /* FLOATING CONTACT */
 .floating-contact {
