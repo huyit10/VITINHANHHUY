@@ -497,17 +497,17 @@
     <!-- TESTIMONIAL & BRANDS -->
     <section class="testimonial-hero">
         <div class="testimonial-overlay">
-            <button class="testimonial-nav prev" aria-label="Trước">‹</button>
+            <button class="testimonial-nav prev" aria-label="Trước" type="button">‹</button>
             <div class="testimonial-card">
-                <p class="testimonial-text">
+                <p class="testimonial-text" id="testimonialText">
                     Mua hàng tại ViTínhAnhHuy luôn là trải nghiệm tuyệt vời nhất. Máy móc chất lượng,
                     bảo hành uy tín, đội ngũ hỗ trợ tư vấn rất nhiệt tình, kể cả trước và sau khi mua.
                     Shop cập nhật mẫu mã mới liên tục, giá cả tốt và nhiều ưu đãi hấp dẫn.
                     Hoàn toàn yên tâm khi nâng cấp dàn máy và thiết bị tại đây.
                 </p>
-                <p class="testimonial-author">Thành Tâm</p>
+                <p class="testimonial-author" id="testimonialAuthor">Thành Tâm</p>
             </div>
-            <button class="testimonial-nav next" aria-label="Tiếp">›</button>
+            <button class="testimonial-nav next" aria-label="Tiếp" type="button">›</button>
         </div>
     </section>
 
@@ -563,8 +563,8 @@
                     </p>
                     <p><strong>Xóm đồng, Phú Hiệp 2, Hòa Hiệp, Đắk Lắk</strong></p>
                     <iframe class="map-embed"
-                        src="https://www.google.com/maps?q=12.9939438,109.357437&z=16&output=embed"
-                        width="100%" height="180" style="border:0;" allowfullscreen="" loading="lazy"
+                        src="https://www.google.com/maps?q=12.9939438,109.357437&z=16&output=embed" width="100%"
+                        height="180" style="border:0;" allowfullscreen="" loading="lazy"
                         referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
@@ -619,6 +619,67 @@
                 item.classList.toggle('open');
             });
         });
+
+        // Testimonial slider (lướt qua 3-4 phần)
+        (function () {
+            var slides = [
+                {
+                    text:
+                        'Mua hàng tại ViTínhAnhHuy luôn là trải nghiệm tuyệt vời nhất. Máy móc chất lượng, bảo hành uy tín, đội ngũ hỗ trợ tư vấn rất nhiệt tình, kể cả trước và sau khi mua. Shop cập nhật mẫu mã mới liên tục, giá cả tốt và nhiều ưu đãi hấp dẫn. Hoàn toàn yên tâm khi nâng cấp dàn máy và thiết bị tại đây.',
+                    author: 'Thành Tâm'
+                },
+                {
+                    text:
+                        'Mình mua laptop văn phòng + nâng cấp SSD tại shop, làm rất nhanh và sạch sẽ. Tư vấn cấu hình vừa đủ dùng nên tiết kiệm được nhiều chi phí. Máy chạy mượt, nhiệt độ ổn, hỗ trợ cài đặt phần mềm đầy đủ.',
+                    author: 'Ngọc Anh'
+                },
+                {
+                    text:
+                        'PC gaming lắp ở đây nhận máy đúng hẹn, test game ổn định. Linh kiện chuẩn, báo giá rõ ràng, có bảo hành và hỗ trợ xử lý khi cần. Dịch vụ hậu mãi tốt nên mình sẽ quay lại nâng cấp tiếp.',
+                    author: 'Quốc Huy'
+                },
+                {
+                    text:
+                        'Mua camera quan sát cho cửa hàng, shop tư vấn vị trí lắp và loại camera phù hợp. Sau khi lắp xong xem trên điện thoại rất dễ, tín hiệu ổn định. Có hướng dẫn sử dụng chi tiết nên rất yên tâm.',
+                    author: 'Thu Trang'
+                }
+            ];
+
+            var hero = document.querySelector('.testimonial-hero');
+            var textEl = document.getElementById('testimonialText');
+            var authorEl = document.getElementById('testimonialAuthor');
+            var prevBtn = document.querySelector('.testimonial-nav.prev');
+            var nextBtn = document.querySelector('.testimonial-nav.next');
+
+            if (!hero || !textEl || !authorEl || !prevBtn || !nextBtn) return;
+
+            var idx = 0;
+
+            function render() {
+                hero.classList.remove('fade-in');
+                // reflow để restart animation
+                void hero.offsetWidth;
+                hero.classList.add('fade-in');
+                textEl.textContent = slides[idx].text;
+                authorEl.textContent = slides[idx].author;
+            }
+
+            prevBtn.addEventListener('click', function () {
+                idx = (idx - 1 + slides.length) % slides.length;
+                render();
+            });
+
+            nextBtn.addEventListener('click', function () {
+                idx = (idx + 1) % slides.length;
+                render();
+            });
+
+            // auto chạy nhẹ mỗi 6s (có thể tắt nếu bạn muốn)
+            setInterval(function () {
+                idx = (idx + 1) % slides.length;
+                render();
+            }, 6000);
+        })();
     </script>
 
 </body>

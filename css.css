@@ -766,6 +766,21 @@ body {
     position: relative;
 }
 
+.testimonial-hero.fade-in .testimonial-card {
+    animation: testimonialFade 280ms ease-out;
+}
+
+@keyframes testimonialFade {
+    from {
+        opacity: 0.4;
+        transform: translateY(4px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 .testimonial-hero::before {
     content: '';
     position: absolute;
