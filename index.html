@@ -34,24 +34,31 @@
 
     <!-- HEADER -->
     <header class="header">
-        <div class="search-box">
-            <input type="text" placeholder="Tìm kiếm...">
+        <div class="header-left">
+            <a href="#" class="logo">VITINHANHHUY<span class="logo-sub">.COM</span></a>
+            <button type="button" class="btn-category">
+                <span class="btn-category-icon">☰</span>
+                Danh mục sản phẩm
+            </button>
+        </div>
+
+        <div class="header-search">
+            <input type="text" placeholder="Bạn muốn mua gì hôm nay...">
             <button type="button" aria-label="Tìm kiếm">🔍</button>
         </div>
-        <a href="#" class="logo">VITINHANHHUY<span class="logo-sub">.COM</span></a>
-        <div class="header-right">
-            <ul class="nav-menu">
-                <li><a href="#">TRANG CHỦ</a></li>
-                <li><a href="#">GIỚI THIỆU</a></li>
-                <li><a href="#">SẢN PHẨM</a></li>
-                <li><a href="#">TIN CÔNG NGHỆ</a></li>
-                <li><a href="#">THU MUA – ĐỔI MỚI</a></li>
-                <li><a href="#">LIÊN HỆ</a></li>
-            </ul>
-            <div class="header-actions">
-                <button type="button" class="btn btn-wishlist">❤️ YÊU THÍCH</button>
-                <a href="#" class="btn btn-cart">🛒 GIỎ HÀNG / 0 ₫</a>
-            </div>
+
+        <div class="header-actions-right">
+            <a href="#" class="action-item">
+                <span class="action-icon">👤</span>
+                <span class="action-text">Đăng nhập<br><strong>Đăng ký</strong></span>
+            </a>
+            <a href="#" class="action-item" aria-label="Thông báo">
+                <span class="action-icon">🔔</span>
+            </a>
+            <a href="#" class="action-item">
+                <span class="action-icon">🛒</span>
+                <span class="action-text">Giỏ hàng của bạn<br><strong>(0) sản phẩm</strong></span>
+            </a>
         </div>
     </header>
 
@@ -592,9 +599,19 @@
 
     <!-- FLOATING CONTACT -->
     <div class="floating-contact">
-        <a href="https://zalo.me/03724359109" target="_blank" rel="noopener" class="float-btn float-zalo"
-            title="Chat Zalo">💬</a>
-        <a href="tel:0372435909" class="float-btn float-phone" title="Gọi ngay">📞</a>
+        <a href="tel:0372435909" class="float-hotline" title="Gọi ngay">
+            <span class="hotline-number">0372 435 909</span>
+            <span class="hotline-icon">📞</span>
+        </a>
+        <div class="float-stack">
+            <a href="https://zalo.me/03724359109" target="_blank" rel="noopener" class="float-btn float-zalo"
+                title="Chat Zalo">Zalo</a>
+            <a href="https://m.me/" target="_blank" rel="noopener" class="float-btn float-messenger"
+                title="Chat Messenger">in</a>
+        </div>
+        <div class="float-label">
+            CHAT VỚI<br><strong>TƯ VẤN VIÊN</strong>
+        </div>
     </div>
 
     <script>
