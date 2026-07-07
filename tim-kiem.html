@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tìm kiếm sản phẩm tại Vi Tính Anh Huy - Laptop, PC, linh kiện chính hãng.">
+    <meta name="theme-color" content="#005bac">
+    <title>Tìm kiếm | Vi Tính Anh Huy</title>
+    <script>window.__API_BASE__ = window.__API_BASE__ || '';</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css.css">
+</head>
+
+<body class="page-shop page-search">
+
+    <div class="top-bar">
+        <span>CHÀO MỪNG BẠN ĐẾN VỚI vitinhanhhuy.com</span>
+        <div class="top-right">
+            <div class="top-links">
+                <a href="gioi-thieu.html">Giới thiệu</a>
+                <a href="tin-cong-nghe.html">Tin công nghệ</a>
+                <a href="#">Chính sách bảo hành</a>
+            </div>
+            <div class="top-icons">
+                <a href="#" class="icon-link" title="Facebook">📘</a>
+                <a href="tel:0977664624" class="icon-link" title="Zalo / Gọi">💬</a>
+                <a href="mailto:contact@vitinhanhhuy.com" class="icon-link" title="Email">✉️</a>
+                <a href="tel:0977664624" class="icon-link" title="Hotline">📞</a>
+                <span class="clock">🕐 8h - 21h</span>
+            </div>
+        </div>
+    </div>
+
+    <header class="header">
+        <div class="header-left">
+            <a href="index.html" class="logo">VITINHANHHUY<span class="logo-sub">.COM</span></a>
+            <button type="button" class="btn-category">
+                <span class="btn-category-icon">☰</span>
+                Danh mục sản phẩm
+            </button>
+        </div>
+        <div class="header-search">
+            <input type="text" placeholder="Bạn muốn mua gì hôm nay..." aria-label="Tìm kiếm sản phẩm">
+            <button type="button" aria-label="Tìm kiếm">🔍</button>
+        </div>
+        <div class="header-actions-right">
+            <div class="action-item auth-header">
+                <span class="action-icon">👤</span>
+                <div class="action-text"><span>Đăng nhập<br><strong>Đăng ký</strong></span></div>
+            </div>
+            <a href="#" class="action-item" aria-label="Thông báo"><span class="action-icon">🔔</span></a>
+            <a href="#" class="action-item">
+                <span class="action-icon">🛒</span>
+                <span class="action-text">Giỏ hàng của bạn<br><strong>(0) sản phẩm</strong></span>
+            </a>
+        </div>
+    </header>
+
+    <nav class="nav">
+        <div class="nav-category">
+            <span class="nav-category-icon">☰</span>
+            Danh Mục Sản Phẩm
+            <span class="nav-category-arrow">▼</span>
+        </div>
+        <div class="nav-menu">
+            <a href="index.html" class="nav-link">Trang chủ</a>
+            <a href="gioi-thieu.html" class="nav-link">Giới thiệu</a>
+            <a href="san-pham.html" class="nav-link active">Sản phẩm</a>
+            <a href="tin-cong-nghe.html" class="nav-link">Tin công nghệ</a>
+            <a href="thu-mua-doi-moi.html" class="nav-link">Thu mua – Đổi mới</a>
+            <a href="lien-he.html" class="nav-link">Liên hệ</a>
+        </div>
+    </nav>
+
+    <div class="shop-toolbar">
+        <nav class="shop-breadcrumb" aria-label="Đường dẫn">
+            <a href="index.html">Trang chủ</a>
+            <span class="shop-breadcrumb-sep">/</span>
+            <a href="san-pham.html">Sản phẩm</a>
+            <span class="shop-breadcrumb-sep">/</span>
+            <span class="shop-breadcrumb-current" id="searchBreadcrumbCurrent">Kết quả tìm kiếm</span>
+        </nav>
+        <div class="shop-toolbar-right">
+            <span class="shop-result-count" id="searchResultCount">Đang tải...</span>
+            <select class="shop-sort" id="searchSort" aria-label="Sắp xếp kết quả">
+                <option value="relevance">Độ liên quan</option>
+                <option value="price-asc">Giá: Thấp đến cao</option>
+                <option value="price-desc">Giá: Cao đến thấp</option>
+                <option value="name">Tên A → Z</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="shop-layout">
+        <aside class="shop-sidebar">
+            <div class="shop-filter-box">
+                <h2 class="shop-filter-title">Lọc theo giá</h2>
+                <div class="shop-price-range">
+                    <input type="range" min="0" max="100" value="100" id="searchPriceRange" aria-label="Giá tối đa">
+                    <div class="shop-price-labels">
+                        <span>0 ₫</span>
+                        <span id="searchPriceLabel">—</span>
+                    </div>
+                </div>
+                <button type="button" class="btn-filter" id="searchBtnFilter">Lọc</button>
+                <p class="shop-price-hint" id="searchPriceHint">Giá: <strong>0 ₫ – —</strong></p>
+            </div>
+
+            <div class="shop-filter-box">
+                <h2 class="shop-filter-title">Danh mục sản phẩm</h2>
+                <ul class="shop-cat-list">
+                    <li><a href="tim-kiem.html?q=laptop" class="shop-cat-link">Laptop <span class="shop-cat-arrow">▼</span></a></li>
+                    <li><a href="tim-kiem.html?q=máy+tính+văn+phòng" class="shop-cat-link">Máy tính văn phòng <span class="shop-cat-arrow">▼</span></a></li>
+                    <li><a href="tim-kiem.html?q=máy+tính+chơi+game" class="shop-cat-link">Máy tính chơi game <span class="shop-cat-arrow">▼</span></a></li>
+                    <li><a href="tim-kiem.html?q=pc+đồ+họa" class="shop-cat-link">PC đồ họa - Render <span class="shop-cat-arrow">▼</span></a></li>
+                    <li><a href="tim-kiem.html?q=linh+kiện+máy+tính+mới" class="shop-cat-link">Linh kiện máy tính mới <span class="shop-cat-arrow">▼</span></a></li>
+                    <li><a href="tim-kiem.html?q=linh+kiện+máy+tính+cũ" class="shop-cat-link">Linh kiện máy tính cũ <span class="shop-cat-arrow">▼</span></a></li>
+                    <li><a href="tim-kiem.html?q=màn+hình+máy+tính" class="shop-cat-link">Màn hình máy tính <span class="shop-cat-arrow">▼</span></a></li>
+                    <li><a href="tim-kiem.html?q=hdd+ssd" class="shop-cat-link">HDD - SSD <span class="shop-cat-arrow">▼</span></a></li>
+                    <li><a href="tim-kiem.html?q=phụ+kiện" class="shop-cat-link">Phụ kiện (Phím, Chuột, Tai nghe...) <span class="shop-cat-arrow">▼</span></a></li>
+                    <li><a href="tim-kiem.html?q=camera+quan+sát" class="shop-cat-link">Camera quan sát <span class="shop-cat-arrow">▼</span></a></li>
+                    <li><a href="tim-kiem.html?q=máy+in" class="shop-cat-link">Máy in - Mực in <span class="shop-cat-arrow">▼</span></a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <main class="shop-main">
+            <div class="shop-grid" id="searchGrid"></div>
+            <div class="search-empty" id="searchEmpty" hidden>
+                <p>Không tìm thấy sản phẩm phù hợp. Thử từ khóa khác hoặc <a href="san-pham.html">xem tất cả sản phẩm</a>.</p>
+            </div>
+            <nav class="shop-pagination" id="searchPagination" aria-label="Phân trang"></nav>
+        </main>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-bottom">
+            <div class="footer-copy">© 2026 Vi Tính Anh Huy. Giữ toàn bộ bản quyền.</div>
+        </div>
+    </footer>
+
+    <script src="js/catalog.js"></script>
+    <script src="js/site-search.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,10 @@
+.git
+.gitignore
+**/.env
+**/.env.*
+**/node_modules
+server/data/*.db
+server/data/*.db-journal
+*.md
+Thumbs.db
+.DS_Store

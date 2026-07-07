@@ -14,3 +14,8 @@ desktop.ini
 *.log
 .env
 .env.local
+
+# Backend
+server/node_modules/
+server/data/*.db
+server/data/*.db-journal

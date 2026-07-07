@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Sản phẩm Vi Tính Anh Huy - Máy tính, laptop, linh kiện, màn hình, camera chính hãng. Giá tốt, bảo hành uy tín.">
+    <meta name="theme-color" content="#005bac">
+    <title>Sản phẩm | Vi Tính Anh Huy</title>
+    <script>window.__API_BASE__ = window.__API_BASE__ || '';</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css.css">
+</head>
+
+<body class="page-shop">
+
+    <div class="top-bar">
+        <span>CHÀO MỪNG BẠN ĐẾN VỚI vitinhanhhuy.com</span>
+        <div class="top-right">
+            <div class="top-links">
+                <a href="gioi-thieu.html">Giới thiệu</a>
+                <a href="tin-cong-nghe.html">Tin công nghệ</a>
+                <a href="#">Chính sách bảo hành</a>
+            </div>
+            <div class="top-icons">
+                <a href="#" class="icon-link" title="Facebook">📘</a>
+                <a href="tel:0977664624" class="icon-link" title="Zalo / Gọi">💬</a>
+                <a href="mailto:contact@vitinhanhhuy.com" class="icon-link" title="Email">✉️</a>
+                <a href="tel:0977664624" class="icon-link" title="Hotline">📞</a>
+                <span class="clock">🕐 8h - 21h</span>
+            </div>
+        </div>
+    </div>
+
+    <header class="header">
+        <div class="header-left">
+            <a href="index.html" class="logo">VITINHANHHUY<span class="logo-sub">.COM</span></a>
+            <button type="button" class="btn-category">
+                <span class="btn-category-icon">☰</span>
+                Danh mục sản phẩm
+            </button>
+        </div>
+        <div class="header-search">
+            <input type="text" placeholder="Bạn muốn mua gì hôm nay...">
+            <button type="button" aria-label="Tìm kiếm">🔍</button>
+        </div>
+        <div class="header-actions-right">
+            <div class="action-item auth-header" id="authHeader">
+                <span class="action-icon">👤</span>
+                <div class="action-text auth-header-text">
+                    <button type="button" class="auth-open-btn" id="authOpenBtn" aria-haspopup="dialog"
+                        aria-controls="authModal">
+                        Đăng nhập<br><strong>Đăng ký</strong>
+                    </button>
+                    <div class="auth-user-summary hidden" id="authUserSummary" aria-live="polite">
+                        <span class="auth-user-line1" id="authUserLine1"></span><br>
+                        <button type="button" class="auth-logout-inline" id="authLogoutBtn">Đăng xuất</button>
+                    </div>
+                </div>
+            </div>
+            <a href="#" class="action-item" aria-label="Thông báo">
+                <span class="action-icon">🔔</span>
+            </a>
+            <a href="#" class="action-item">
+                <span class="action-icon">🛒</span>
+                <span class="action-text">Giỏ hàng của bạn<br><strong>(0) sản phẩm</strong></span>
+            </a>
+        </div>
+    </header>
+
+    <nav class="nav">
+        <div class="nav-category">
+            <span class="nav-category-icon">☰</span>
+            Danh Mục Sản Phẩm
+            <span class="nav-category-arrow">▼</span>
+        </div>
+        <div class="nav-menu">
+            <a href="index.html" class="nav-link">Trang chủ</a>
+            <a href="gioi-thieu.html" class="nav-link">Giới thiệu</a>
+            <a href="san-pham.html" class="nav-link active">Sản phẩm</a>
+            <a href="tin-cong-nghe.html" class="nav-link">Tin công nghệ</a>
+            <a href="thu-mua-doi-moi.html" class="nav-link">Thu mua – Đổi mới</a>
+            <a href="lien-he.html" class="nav-link">Liên hệ</a>
+        </div>
+    </nav>
+
+    <div class="shop-toolbar">
+        <nav class="shop-breadcrumb" aria-label="Đường dẫn">
+            <a href="index.html">Trang chủ</a>
+            <span class="shop-breadcrumb-sep">/</span>
+            <span class="shop-breadcrumb-current">Sản phẩm</span>
+        </nav>
+        <div class="shop-toolbar-right">
+            <span class="shop-result-count">Hiển thị 1–12 của 24 kết quả</span>
+            <select class="shop-sort" aria-label="Sắp xếp sản phẩm">
+                <option value="default" selected>Sắp xếp mặc định</option>
+                <option value="price-asc">Giá: Thấp đến cao</option>
+                <option value="price-desc">Giá: Cao đến thấp</option>
+                <option value="name">Tên A → Z</option>
+                <option value="newest">Mới nhất</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="shop-layout">
+        <aside class="shop-sidebar">
+            <div class="shop-filter-box">
+                <h2 class="shop-filter-title">Lọc theo giá</h2>
+                <div class="shop-price-range">
+                    <input type="range" min="0" max="100" value="100" id="priceRangeMax"
+                        aria-label="Giá tối đa">
+                    <div class="shop-price-labels">
+                        <span>0 ₫</span>
+                        <span id="priceRangeLabel">30.800.000 ₫</span>
+                    </div>
+                </div>
+                <button type="button" class="btn-filter" id="btnFilterPrice">Lọc</button>
+                <p class="shop-price-hint">Giá: <strong>0 ₫ – 30.800.000 ₫</strong></p>
+            </div>
+
+            <div class="shop-filter-box">
+                <h2 class="shop-filter-title">Danh mục sản phẩm</h2>
+                <ul class="shop-cat-list">
+                    <li><a href="#" class="shop-cat-link">Camera Quan Sát <span class="shop-cat-arrow">▼</span></a></li>
+                    <li><a href="#" class="shop-cat-link">Laptop <span class="shop-cat-arrow">▼</span></a></li>
+                    <li><a href="#" class="shop-cat-link">Linh kiện máy tính cũ <span class="shop-cat-arrow">▼</span></a></li>
+                    <li><a href="#" class="shop-cat-link">Linh kiện máy tính mới <span class="shop-cat-arrow">▼</span></a></li>
+                    <li><a href="#" class="shop-cat-link">Màn hình máy tính <span class="shop-cat-arrow">▼</span></a></li>
+                    <li><a href="#" class="shop-cat-link">Máy in – Mực in <span class="shop-cat-arrow">▼</span></a></li>
+                    <li><a href="#" class="shop-cat-link">PC Đồ Họa – AI <span class="shop-cat-arrow">▼</span></a></li>
+                    <li><a href="#" class="shop-cat-link">PC Gaming <span class="shop-cat-arrow">▼</span></a></li>
+                    <li><a href="#" class="shop-cat-link">PC Văn Phòng – Doanh Nghiệp <span class="shop-cat-arrow">▼</span></a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <main class="shop-main">
+            <div class="shop-grid" id="shopGrid">
+
+                <article class="product-card product-card-shop" data-price="23850000">
+                    <div class="product-image">
+                        <span class="product-badge-pct">-4%</span>
+                        <span class="product-logo">vitinhanhhuy.com</span>
+                        <div class="product-img-placeholder">🖥️</div>
+                    </div>
+                    <div class="product-body">
+                        <p class="product-category">MÁY TÍNH ĐỒ HỌA – CHƠI GAME</p>
+                        <h3 class="product-name">PC i5-14400F, B760, 16GB, 512GB SSD, RTX 3060 12GB</h3>
+                        <div class="product-prices">
+                            <p class="product-price-sale">23.850.000 ₫</p>
+                            <p class="product-price"><s>24.950.000 ₫</s></p>
+                        </div>
+                    </div>
+                    <button type="button" class="btn-add-cart">THÊM VÀO GIỎ HÀNG</button>
+                </article>
+
+                <article class="product-card product-card-shop" data-price="600000">
+                    <div class="product-image">
+                        <span class="product-badge-pct">-37%</span>
+                        <span class="product-logo">vitinhanhhuy.com</span>
+                        <div class="product-img-placeholder">🪑</div>
+                    </div>
+                    <div class="product-body">
+                        <p class="product-category">BÀN GHẾ GAMING</p>
+                        <h3 class="product-name">Bàn Gaming chữ K full đen</h3>
+                        <div class="product-prices">
+                            <p class="product-price-sale">600.000 ₫</p>
+                            <p class="product-price"><s>950.000 ₫</s></p>
+                        </div>
+                    </div>
+                    <button type="button" class="btn-add-cart">THÊM VÀO GIỎ HÀNG</button>
+                </article>
+
+                <article class="product-card product-card-shop" data-price="285000">
+                    <div class="product-image">
+                        <span class="product-badge-pct">-20%</span>
+                        <span class="product-logo">vitinhanhhuy.com</span>
+                        <div class="product-img-placeholder">🖱️</div>
+                    </div>
+                    <div class="product-body">
+                        <p class="product-category">PHỤ KIỆN</p>
+                        <h3 class="product-name">Chuột Gaming Có Dây Logitech G402</h3>
+                        <div class="product-prices">
+                            <p class="product-price-sale">285.000 ₫</p>
+                            <p class="product-price"><s>355.000 ₫</s></p>
+                        </div>
+                    </div>
+                    <button type="button" class="btn-add-cart">THÊM VÀO GIỎ HÀNG</button>
+                </article>
+
+                <article class="product-card product-card-shop" data-price="165000">
+                    <div class="product-image">
+                        <span class="product-badge-pct">-17%</span>
+                        <span class="product-logo">vitinhanhhuy.com</span>
+                        <div class="product-img-placeholder">🔊</div>
+                    </div>
+                    <div class="product-body">
+                        <p class="product-category">PHỤ KIỆN</p>
+                        <h3 class="product-name">Loa Hotmai HT 127 Led</h3>
+                        <div class="product-prices">
+                            <p class="product-price-sale">165.000 ₫</p>
+                            <p class="product-price"><s>199.000 ₫</s></p>
+                        </div>
+                    </div>
+                    <button type="button" class="btn-add-cart">THÊM VÀO GIỎ HÀNG</button>
+                </article>
+
+                <article class="product-card product-card-shop" data-price="110000">
+                    <div class="product-image">
+                        <span class="product-badge-pct">-19%</span>
+                        <span class="product-logo">vitinhanhhuy.com</span>
+                        <div class="product-img-placeholder">📶</div>
+                    </div>
+                    <div class="product-body">
+                        <p class="product-category">PHỤ KIỆN MẠNG</p>
+                        <h3 class="product-name">USB Thu WiFi 802.11N (Có Anten)</h3>
+                        <div class="product-prices">
+                            <p class="product-price-sale">110.000 ₫</p>
+                            <p class="product-price"><s>135.000 ₫</s></p>
+                        </div>
+                    </div>
+                    <button type="button" class="btn-add-cart">THÊM VÀO GIỎ HÀNG</button>
+                </article>
+
+                <article class="product-card product-card-shop" data-price="1600000">
+                    <div class="product-image">
+                        <span class="product-badge-pct">-14%</span>
+                        <span class="product-logo">vitinhanhhuy.com</span>
+                        <div class="product-img-placeholder">🖵</div>
+                    </div>
+                    <div class="product-body">
+                        <p class="product-category">MÀN HÌNH</p>
+                        <h3 class="product-name">Màn hình AIVISION A243FV 24" 100Hz VA FHD 5ms</h3>
+                        <div class="product-prices">
+                            <p class="product-price-sale">1.600.000 ₫</p>
+                            <p class="product-price"><s>1.850.000 ₫</s></p>
+                        </div>
+                    </div>
+                    <button type="button" class="btn-add-cart">THÊM VÀO GIỎ HÀNG</button>
+                </article>
+
+                <article class="product-card product-card-shop" data-price="650000">
+                    <div class="product-image">
+                        <span class="product-badge-pct">-18%</span>
+                        <span class="product-logo">vitinhanhhuy.com</span>
+                        <div class="product-img-placeholder">🪑</div>
+                    </div>
+                    <div class="product-body">
+                        <p class="product-category">BÀN GHẾ GAMING</p>
+                        <h3 class="product-name">Ghế xoay có Tựa Đầu Đen</h3>
+                        <div class="product-prices">
+                            <p class="product-price-sale">650.000 ₫</p>
+                            <p class="product-price"><s>790.000 ₫</s></p>
+                        </div>
+                    </div>
+                    <button type="button" class="btn-add-cart">THÊM VÀO GIỎ HÀNG</button>
+                </article>
+
+                <article class="product-card product-card-shop" data-price="355000">
+                    <div class="product-image">
+                        <span class="product-badge-pct">-18%</span>
+                        <span class="product-logo">vitinhanhhuy.com</span>
+                        <div class="product-img-placeholder">🖱️</div>
+                    </div>
+                    <div class="product-body">
+                        <p class="product-category">PHỤ KIỆN</p>
+                        <h3 class="product-name">Chuột gaming có dây Logitech G502 Hero</h3>
+                        <div class="product-prices">
+                            <p class="product-price-sale">355.000 ₫</p>
+                            <p class="product-price"><s>435.000 ₫</s></p>
+                        </div>
+                    </div>
+                    <button type="button" class="btn-add-cart">THÊM VÀO GIỎ HÀNG</button>
+                </article>
+
+                <article class="product-card product-card-shop" data-price="1450000">
+                    <div class="product-image">
+                        <span class="product-badge-pct">-22%</span>
+                        <span class="product-logo">vitinhanhhuy.com</span>
+                        <div class="product-img-placeholder">💾</div>
+                    </div>
+                    <div class="product-body">
+                        <p class="product-category">RAM</p>
+                        <h3 class="product-name">Ram 8G Corsair Bus 3000 Tản Thép</h3>
+                        <div class="product-prices">
+                            <p class="product-price-sale">1.450.000 ₫</p>
+                            <p class="product-price"><s>1.850.000 ₫</s></p>
+                        </div>
+                    </div>
+                    <button type="button" class="btn-add-cart">THÊM VÀO GIỎ HÀNG</button>
+                </article>
+
+                <article class="product-card product-card-shop" data-price="1450000">
+                    <div class="product-image">
+                        <span class="product-badge-pct">-12%</span>
+                        <span class="product-logo">vitinhanhhuy.com</span>
+                        <div class="product-img-placeholder">💾</div>
+                    </div>
+                    <div class="product-body">
+                        <p class="product-category">RAM</p>
+                        <h3 class="product-name">Ram Adata XPG 8G Bus 3200 Tản Led</h3>
+                        <div class="product-prices">
+                            <p class="product-price-sale">1.450.000 ₫</p>
+                            <p class="product-price"><s>1.650.000 ₫</s></p>
+                        </div>
+                    </div>
+                    <button type="button" class="btn-add-cart">THÊM VÀO GIỎ HÀNG</button>
+                </article>
+
+                <article class="product-card product-card-shop" data-price="1650000">
+                    <div class="product-image">
+                        <span class="product-badge-pct">-23%</span>
+                        <span class="product-logo">vitinhanhhuy.com</span>
+                        <div class="product-img-placeholder">💾</div>
+                    </div>
+                    <div class="product-body">
+                        <p class="product-category">RAM</p>
+                        <h3 class="product-name">Ram Gskill TridentZ 8G Bus 3000 Tản Led</h3>
+                        <div class="product-prices">
+                            <p class="product-price-sale">1.650.000 ₫</p>
+                            <p class="product-price"><s>2.150.000 ₫</s></p>
+                        </div>
+                    </div>
+                    <button type="button" class="btn-add-cart">THÊM VÀO GIỎ HÀNG</button>
+                </article>
+
+                <article class="product-card product-card-shop" data-price="3450000">
+                    <div class="product-image">
+                        <span class="product-badge-pct">-13%</span>
+                        <span class="product-logo">vitinhanhhuy.com</span>
+                        <div class="product-img-placeholder">💾</div>
+                    </div>
+                    <div class="product-body">
+                        <p class="product-category">RAM</p>
+                        <h3 class="product-name">Ram Apacer 16G DDR5 5200 Nox Led RGB</h3>
+                        <div class="product-prices">
+                            <p class="product-price-sale">3.450.000 ₫</p>
+                            <p class="product-price"><s>3.950.000 ₫</s></p>
+                        </div>
+                    </div>
+                    <button type="button" class="btn-add-cart">THÊM VÀO GIỎ HÀNG</button>
+                </article>
+
+            </div>
+
+            <nav class="shop-pagination" aria-label="Phân trang">
+                <span class="shop-page-btn disabled">‹</span>
+                <a href="san-pham.html" class="shop-page-btn active" aria-current="page">1</a>
+                <a href="san-pham.html?page=2" class="shop-page-btn">2</a>
+                <a href="san-pham.html?page=2" class="shop-page-btn">›</a>
+            </nav>
+        </main>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="footer-col">
+                <h3>Giới thiệu</h3>
+                <p>Cửa hàng <strong>Vi Tính Anh Huy</strong> chuyên kinh doanh Máy tính bàn, Laptop, linh kiện máy
+                    tính, thiết bị văn phòng, Camera, thiết bị mạng và nhiều sản phẩm công nghệ khác.</p>
+                <div class="footer-social">
+                    <span>Fb</span>
+                    <span>Yt</span>
+                    <span>Zalo</span>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h3>Tin công nghệ</h3>
+                <ul class="footer-news">
+                    <li>
+                        <span class="news-title">Bí kíp chọn cấu hình PC văn phòng ổn định, bền bỉ</span>
+                        <span class="news-date">Cập nhật: 02/2026</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Google Map</h3>
+                <div class="footer-map">
+                    <p>Địa chỉ showroom:</p>
+                    <p><strong>Xóm đồng, Phú Hiệp 2, Hòa Hiệp, Đắk Lắk</strong></p>
+                    <iframe class="map-embed"
+                        src="https://www.google.com/maps?q=12.9939438,109.357437&z=16&output=embed" width="100%"
+                        height="180" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h3>Fanpage</h3>
+                <div class="footer-fanpage">
+                    <p><strong>Vi Tính Anh Huy - Máy tính, Linh kiện</strong></p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-payments">
+                <span class="pay visa">VISA</span>
+                <span class="pay master">MasterCard</span>
+                <span class="pay jcb">JCB</span>
+                <span class="pay cod">COD</span>
+            </div>
+            <div class="footer-copy">© 2026 Vi Tính Anh Huy. Giữ toàn bộ bản quyền.</div>
+        </div>
+    </footer>
+
+    <div class="auth-modal" id="authModal" role="dialog" aria-modal="true" aria-labelledby="authModalTitle"
+        aria-hidden="true" hidden>
+        <div class="auth-modal-backdrop" id="authModalBackdrop" tabindex="-1"></div>
+        <div class="auth-modal-dialog">
+            <button type="button" class="auth-modal-close" id="authModalClose" aria-label="Đóng">×</button>
+            <h2 class="auth-modal-title" id="authModalTitle">Tài khoản</h2>
+            <div class="auth-tabs" role="tablist">
+                <button type="button" class="auth-tab active" id="tabLogin" role="tab" aria-selected="true"
+                    aria-controls="panelLogin" data-panel="login">Đăng nhập</button>
+                <button type="button" class="auth-tab" id="tabRegister" role="tab" aria-selected="false"
+                    aria-controls="panelRegister" data-panel="register">Đăng ký</button>
+            </div>
+            <p class="auth-msg" id="authMsg" role="status"></p>
+            <form class="auth-form" id="formLogin" role="tabpanel" aria-labelledby="tabLogin">
+                <label class="auth-label" for="loginEmail">Email</label>
+                <input class="auth-input" type="email" id="loginEmail" name="email" autocomplete="email" required>
+                <label class="auth-label" for="loginPassword">Mật khẩu</label>
+                <input class="auth-input" type="password" id="loginPassword" name="password"
+                    autocomplete="current-password" required>
+                <button type="submit" class="auth-submit">Đăng nhập</button>
+            </form>
+            <form class="auth-form hidden" id="formRegister" role="tabpanel" aria-labelledby="tabRegister">
+                <label class="auth-label" for="regName">Họ tên (tuỳ chọn)</label>
+                <input class="auth-input" type="text" id="regName" name="full_name" autocomplete="name">
+                <label class="auth-label" for="regEmail">Email</label>
+                <input class="auth-input" type="email" id="regEmail" name="email" autocomplete="email" required>
+                <label class="auth-label" for="regPassword">Mật khẩu (tối thiểu 6 ký tự)</label>
+                <input class="auth-input" type="password" id="regPassword" name="password"
+                    autocomplete="new-password" required minlength="6">
+                <button type="submit" class="auth-submit">Tạo tài khoản</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="floating-contact">
+        <a href="tel:0372435909" class="float-hotline" title="Gọi ngay">
+            <span class="hotline-number">0372 435 909</span>
+            <span class="hotline-icon">📞</span>
+        </a>
+        <div class="float-stack">
+            <a href="https://zalo.me/03724359109" target="_blank" rel="noopener" class="float-btn float-zalo"
+                title="Chat Zalo">Zalo</a>
+            <a href="https://m.me/" target="_blank" rel="noopener" class="float-btn float-messenger"
+                title="Chat Messenger">in</a>
+        </div>
+        <div class="float-label">CHAT VỚI<br><strong>TƯ VẤN VIÊN</strong></div>
+    </div>
+
+    <script>
+        (function () {
+            var MAX_PRICE = 30800000;
+            var range = document.getElementById('priceRangeMax');
+            var label = document.getElementById('priceRangeLabel');
+            var btnFilter = document.getElementById('btnFilterPrice');
+            var grid = document.getElementById('shopGrid');
+            var sortSelect = document.querySelector('.shop-sort');
+
+            function formatPrice(n) {
+                return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.') + ' ₫';
+            }
+
+            if (range && label) {
+                range.addEventListener('input', function () {
+                    var val = Math.round((range.value / 100) * MAX_PRICE);
+                    label.textContent = formatPrice(val);
+                });
+            }
+
+            if (btnFilter && grid && range) {
+                btnFilter.addEventListener('click', function () {
+                    var maxVal = Math.round((range.value / 100) * MAX_PRICE);
+                    grid.querySelectorAll('.product-card-shop').forEach(function (card) {
+                        var price = parseInt(card.getAttribute('data-price'), 10) || 0;
+                        card.style.display = price <= maxVal ? '' : 'none';
+                    });
+                });
+            }
+
+            if (sortSelect && grid) {
+                sortSelect.addEventListener('change', function () {
+                    var cards = Array.prototype.slice.call(grid.querySelectorAll('.product-card-shop'));
+                    var mode = sortSelect.value;
+                    cards.sort(function (a, b) {
+                        var pa = parseInt(a.getAttribute('data-price'), 10) || 0;
+                        var pb = parseInt(b.getAttribute('data-price'), 10) || 0;
+                        var na = (a.querySelector('.product-name') || {}).textContent || '';
+                        var nb = (b.querySelector('.product-name') || {}).textContent || '';
+                        if (mode === 'price-asc') return pa - pb;
+                        if (mode === 'price-desc') return pb - pa;
+                        if (mode === 'name') return na.localeCompare(nb, 'vi');
+                        return 0;
+                    });
+                    cards.forEach(function (c) { grid.appendChild(c); });
+                });
+            }
+        })();
+
+        (function () {
+            var modal = document.getElementById('authModal');
+            if (!modal) return;
+            var backdrop = document.getElementById('authModalBackdrop');
+            var btnOpen = document.getElementById('authOpenBtn');
+            var btnClose = document.getElementById('authModalClose');
+            var btnLogout = document.getElementById('authLogoutBtn');
+            var guestBlock = btnOpen;
+            var userSummary = document.getElementById('authUserSummary');
+            var userLine1 = document.getElementById('authUserLine1');
+            var msg = document.getElementById('authMsg');
+            var formLogin = document.getElementById('formLogin');
+            var formRegister = document.getElementById('formRegister');
+            var tabLogin = document.getElementById('tabLogin');
+            var tabRegister = document.getElementById('tabRegister');
+
+            function apiBase() {
+                var custom = typeof window.__API_BASE__ === 'string'
+                    ? window.__API_BASE__.trim().replace(/\/$/, '') : '';
+                if (custom) return custom;
+                if (location.protocol === 'file:') return 'http://127.0.0.1:3000';
+                if (location.port === '3000' || location.port === '') return '';
+                if (location.hostname === 'localhost' || location.hostname === '127.0.0.1') {
+                    return 'http://127.0.0.1:3000';
+                }
+                return '';
+            }
+
+            function api(path, options) {
+                return fetch(apiBase() + path, Object.assign({ credentials: 'include' }, options || {}));
+            }
+
+            function setMsg(text, isError) {
+                msg.textContent = text || '';
+                msg.classList.toggle('auth-msg-error', !!isError);
+            }
+
+            function openModal() {
+                modal.removeAttribute('hidden');
+                modal.classList.add('is-open');
+                modal.setAttribute('aria-hidden', 'false');
+                document.body.classList.add('auth-modal-open');
+                btnClose.focus();
+            }
+
+            function closeModal() {
+                modal.setAttribute('hidden', '');
+                modal.classList.remove('is-open');
+                modal.setAttribute('aria-hidden', 'true');
+                document.body.classList.remove('auth-modal-open');
+                setMsg('');
+            }
+
+            function showPanel(which) {
+                var isLogin = which === 'login';
+                tabLogin.classList.toggle('active', isLogin);
+                tabRegister.classList.toggle('active', !isLogin);
+                formLogin.classList.toggle('hidden', !isLogin);
+                formRegister.classList.toggle('hidden', isLogin);
+                setMsg('');
+            }
+
+            function renderUser(user) {
+                if (user) {
+                    guestBlock.classList.add('hidden');
+                    userSummary.classList.remove('hidden');
+                    userLine1.textContent = user.email;
+                } else {
+                    guestBlock.classList.remove('hidden');
+                    userSummary.classList.add('hidden');
+                }
+            }
+
+            btnOpen.addEventListener('click', function () { openModal(); showPanel('login'); });
+            btnClose.addEventListener('click', closeModal);
+            backdrop.addEventListener('click', closeModal);
+            tabLogin.addEventListener('click', function () { showPanel('login'); });
+            tabRegister.addEventListener('click', function () { showPanel('register'); });
+            btnLogout.addEventListener('click', function (e) {
+                e.preventDefault();
+                api('/api/logout', { method: 'POST', headers: { 'Content-Type': 'application/json' } })
+                    .then(function () {
+                        api('/api/me').then(function (r) { return r.json(); }).then(function (d) { renderUser(d.user); });
+                    });
+            });
+            formLogin.addEventListener('submit', function (e) {
+                e.preventDefault();
+                var fd = new FormData(formLogin);
+                api('/api/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email: fd.get('email'), password: fd.get('password') }),
+                }).then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
+                    .then(function (x) {
+                        if (x.ok) { closeModal(); api('/api/me').then(function (r) { return r.json(); }).then(function (d) { renderUser(d.user); }); }
+                        else setMsg(x.j.error || 'Đăng nhập thất bại.', true);
+                    });
+            });
+            formRegister.addEventListener('submit', function (e) {
+                e.preventDefault();
+                var fd = new FormData(formRegister);
+                api('/api/register', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email: fd.get('email'), password: fd.get('password'), full_name: fd.get('full_name') }),
+                }).then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
+                    .then(function (x) {
+                        if (x.ok) { closeModal(); api('/api/me').then(function (r) { return r.json(); }).then(function (d) { renderUser(d.user); }); }
+                        else setMsg(x.j.error || 'Đăng ký thất bại.', true);
+                    });
+            });
+            api('/api/me').then(function (r) { return r.json(); }).then(function (d) { renderUser(d.user); }).catch(function () { });
+        })();
+    </script>
+
+    <script src="js/catalog.js"></script>
+    <script src="js/site-search.js"></script>
+</body>
+
+</html>

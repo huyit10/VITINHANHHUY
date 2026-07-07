@@ -1,0 +1,17 @@
+services:
+  web:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ENV: production
+      PORT: "3000"
+      SESSION_SECRET: ${SESSION_SECRET:-doi-secret-nay-khi-trien-khai}
+      # Cookie phiên: bật true khi user truy cập qua HTTPS
+      SESSION_COOKIE_SECURE: ${SESSION_COOKIE_SECURE:-false}
+    volumes:
+      # Giữ SQLite giữa các lần restart container
+      - vitinh-sqlite:/app/server/data
+
+volumes:
+  vitinh-sqlite:

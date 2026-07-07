@@ -8,6 +8,8 @@
         content="Vi Tính Anh Huy - Máy tính, laptop, linh kiện, màn hình, camera, thu cũ đổi mới. Giao hàng toàn quốc, bảo hành uy tín, giá tốt tại Phú Yên.">
     <meta name="theme-color" content="#005bac">
     <title>Vi Tính Anh Huy | Máy tính, Laptop, Linh kiện chính hãng</title>
+    <!-- Tuỳ chọn: URL API khi tách host (để trống = tự nhận localhost:3000 khi cần) -->
+    <script>window.__API_BASE__ = window.__API_BASE__ || '';</script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
@@ -21,8 +23,8 @@
         <span>CHÀO MỪNG BẠN ĐẾN VỚI vitinhanhhuy.com</span>
         <div class="top-right">
             <div class="top-links">
-                <a href="#">Giới thiệu</a>
-                <a href="#">Tin công nghệ</a>
+                <a href="gioi-thieu.html">Giới thiệu</a>
+                <a href="tin-cong-nghe.html">Tin công nghệ</a>
                 <a href="#">Chính sách bảo hành</a>
             </div>
             <div class="top-icons">
@@ -38,7 +40,7 @@
     <!-- HEADER -->
     <header class="header">
         <div class="header-left">
-            <a href="#" class="logo">VITINHANHHUY<span class="logo-sub">.COM</span></a>
+            <a href="index.html" class="logo">VITINHANHHUY<span class="logo-sub">.COM</span></a>
             <button type="button" class="btn-category">
                 <span class="btn-category-icon">☰</span>
                 Danh mục sản phẩm
@@ -51,10 +53,19 @@
         </div>
 
         <div class="header-actions-right">
-            <a href="#" class="action-item">
+            <div class="action-item auth-header" id="authHeader">
                 <span class="action-icon">👤</span>
-                <span class="action-text">Đăng nhập<br><strong>Đăng ký</strong></span>
-            </a>
+                <div class="action-text auth-header-text">
+                    <button type="button" class="auth-open-btn" id="authOpenBtn" aria-haspopup="dialog"
+                        aria-controls="authModal">
+                        Đăng nhập<br><strong>Đăng ký</strong>
+                    </button>
+                    <div class="auth-user-summary hidden" id="authUserSummary" aria-live="polite">
+                        <span class="auth-user-line1" id="authUserLine1"></span><br>
+                        <button type="button" class="auth-logout-inline" id="authLogoutBtn">Đăng xuất</button>
+                    </div>
+                </div>
+            </div>
             <a href="#" class="action-item" aria-label="Thông báo">
                 <span class="action-icon">🔔</span>
             </a>
@@ -72,7 +83,14 @@
             Danh Mục Sản Phẩm
             <span class="nav-category-arrow">▼</span>
         </div>
-        <div class="nav-spacer"></div>
+        <div class="nav-menu">
+            <a href="index.html" class="nav-link active">Trang chủ</a>
+            <a href="gioi-thieu.html" class="nav-link">Giới thiệu</a>
+            <a href="san-pham.html" class="nav-link">Sản phẩm</a>
+            <a href="tin-cong-nghe.html" class="nav-link">Tin công nghệ</a>
+            <a href="thu-mua-doi-moi.html" class="nav-link">Thu mua – Đổi mới</a>
+            <a href="lien-he.html" class="nav-link">Liên hệ</a>
+        </div>
     </nav>
 
     <!-- MAIN -->
@@ -485,7 +503,7 @@
 
         <!-- RIGHT BANNER -->
         <aside class="right-banner">
-            <a href="#" class="promo-box promo-1">
+            <a href="thu-mua-doi-moi.html" class="promo-box promo-1">
                 <span class="promo-icon">🔄</span>
                 <span>THU CŨ ĐỔI MỚI</span>
             </a>
@@ -493,7 +511,7 @@
                 <span class="promo-icon">🚚</span>
                 <span>GIAO HÀNG TOÀN QUỐC</span>
             </a>
-            <a href="#" class="promo-box promo-3">
+            <a href="thu-mua-doi-moi.html" class="promo-box promo-3">
                 <span class="promo-icon">🎮</span>
                 <span>THU CŨ ĐỔI MỚI – LÊN ĐỜI PC</span>
             </a>
@@ -600,6 +618,46 @@
         </div>
     </footer>
 
+    <!-- AUTH MODAL -->
+    <div class="auth-modal" id="authModal" role="dialog" aria-modal="true" aria-labelledby="authModalTitle"
+        aria-hidden="true" hidden>
+        <div class="auth-modal-backdrop" id="authModalBackdrop" tabindex="-1"></div>
+        <div class="auth-modal-dialog">
+            <button type="button" class="auth-modal-close" id="authModalClose" aria-label="Đóng">×</button>
+            <h2 class="auth-modal-title" id="authModalTitle">Tài khoản</h2>
+            <div class="auth-tabs" role="tablist">
+                <button type="button" class="auth-tab active" id="tabLogin" role="tab" aria-selected="true"
+                    aria-controls="panelLogin" data-panel="login">Đăng nhập</button>
+                <button type="button" class="auth-tab" id="tabRegister" role="tab" aria-selected="false"
+                    aria-controls="panelRegister" data-panel="register">Đăng ký</button>
+            </div>
+            <p class="auth-file-hint" id="authFileHint" hidden>
+                Để lưu tài khoản vào CSDL, cần chạy backend: trong thư mục <strong>server</strong> gõ
+                <code>npm install</code> rồi <code>npm start</code>, sau đó mở
+                <strong>http://localhost:3000</strong> (hoặc để Live Server bật, vẫn phải chạy <code>npm start</code>).
+            </p>
+            <p class="auth-msg" id="authMsg" role="status"></p>
+            <form class="auth-form" id="formLogin" role="tabpanel" aria-labelledby="tabLogin">
+                <label class="auth-label" for="loginEmail">Email</label>
+                <input class="auth-input" type="email" id="loginEmail" name="email" autocomplete="email" required>
+                <label class="auth-label" for="loginPassword">Mật khẩu</label>
+                <input class="auth-input" type="password" id="loginPassword" name="password"
+                    autocomplete="current-password" required>
+                <button type="submit" class="auth-submit">Đăng nhập</button>
+            </form>
+            <form class="auth-form hidden" id="formRegister" role="tabpanel" aria-labelledby="tabRegister">
+                <label class="auth-label" for="regName">Họ tên (tuỳ chọn)</label>
+                <input class="auth-input" type="text" id="regName" name="full_name" autocomplete="name">
+                <label class="auth-label" for="regEmail">Email</label>
+                <input class="auth-input" type="email" id="regEmail" name="email" autocomplete="email" required>
+                <label class="auth-label" for="regPassword">Mật khẩu (tối thiểu 6 ký tự)</label>
+                <input class="auth-input" type="password" id="regPassword" name="password"
+                    autocomplete="new-password" required minlength="6">
+                <button type="submit" class="auth-submit">Tạo tài khoản</button>
+            </form>
+        </div>
+    </div>
+
     <!-- FLOATING CONTACT -->
     <div class="floating-contact">
         <a href="tel:0372435909" class="float-hotline" title="Gọi ngay">
@@ -700,8 +758,195 @@
                 render();
             }, 6000);
         })();
+
+        // Đăng nhập / Đăng ký (API + session cookie)
+        (function () {
+            var modal = document.getElementById('authModal');
+            var backdrop = document.getElementById('authModalBackdrop');
+            var btnOpen = document.getElementById('authOpenBtn');
+            var btnClose = document.getElementById('authModalClose');
+            var btnLogout = document.getElementById('authLogoutBtn');
+            var guestBlock = btnOpen;
+            var userSummary = document.getElementById('authUserSummary');
+            var userLine1 = document.getElementById('authUserLine1');
+            var msg = document.getElementById('authMsg');
+            var fileHint = document.getElementById('authFileHint');
+            var formLogin = document.getElementById('formLogin');
+            var formRegister = document.getElementById('formRegister');
+            var tabLogin = document.getElementById('tabLogin');
+            var tabRegister = document.getElementById('tabRegister');
+
+            function apiBase() {
+                var custom = typeof window.__API_BASE__ === 'string'
+                    ? window.__API_BASE__.trim().replace(/\/$/, '')
+                    : '';
+                if (custom) return custom;
+                if (location.protocol === 'file:') return 'http://127.0.0.1:3000';
+                if (location.port === '3000' || location.port === '') return '';
+                if (location.hostname === 'localhost' || location.hostname === '127.0.0.1') {
+                    return 'http://127.0.0.1:3000';
+                }
+                return '';
+            }
+
+            function updateFileHintVisibility() {
+                if (!fileHint) return;
+                var wrongPort = (location.hostname === 'localhost' || location.hostname === '127.0.0.1')
+                    && location.port !== '' && location.port !== '3000';
+                fileHint.hidden = !(location.protocol === 'file:' || wrongPort);
+            }
+
+            function api(path, options) {
+                var base = apiBase();
+                var url = base + path;
+                return fetch(url, Object.assign({ credentials: 'include' }, options || {}));
+            }
+
+            function serverHintLine() {
+                return ' Chạy trong thư mục server: npm install rồi npm start — mở http://localhost:3000 (hoặc giữ Live Server nhưng backend vẫn phải chạy cổng 3000).';
+            }
+
+            function setMsg(text, isError) {
+                msg.textContent = text || '';
+                msg.classList.toggle('auth-msg-error', !!isError);
+            }
+
+            function openModal() {
+                modal.removeAttribute('hidden');
+                modal.classList.add('is-open');
+                modal.setAttribute('aria-hidden', 'false');
+                document.body.classList.add('auth-modal-open');
+                updateFileHintVisibility();
+                btnClose.focus();
+            }
+
+            function closeModal() {
+                modal.setAttribute('hidden', '');
+                modal.classList.remove('is-open');
+                modal.setAttribute('aria-hidden', 'true');
+                document.body.classList.remove('auth-modal-open');
+                setMsg('');
+            }
+
+            function showPanel(which) {
+                var isLogin = which === 'login';
+                tabLogin.classList.toggle('active', isLogin);
+                tabRegister.classList.toggle('active', !isLogin);
+                tabLogin.setAttribute('aria-selected', isLogin);
+                tabRegister.setAttribute('aria-selected', !isLogin);
+                formLogin.classList.toggle('hidden', !isLogin);
+                formRegister.classList.toggle('hidden', isLogin);
+                setMsg('');
+            }
+
+            function truncateEmail(s, max) {
+                max = max || 22;
+                if (!s || s.length <= max) return s;
+                return s.slice(0, max - 1) + '…';
+            }
+
+            function renderUser(user) {
+                if (user) {
+                    guestBlock.classList.add('hidden');
+                    userSummary.classList.remove('hidden');
+                    userLine1.textContent = truncateEmail(user.email);
+                    userLine1.title = user.email;
+                } else {
+                    guestBlock.classList.remove('hidden');
+                    userSummary.classList.add('hidden');
+                    userLine1.textContent = '';
+                    userLine1.title = '';
+                }
+            }
+
+            function refreshMe() {
+                api('/api/me')
+                    .then(function (r) { return r.json(); })
+                    .then(function (data) {
+                        renderUser(data.user);
+                    })
+                    .catch(function () { renderUser(null); });
+            }
+
+            btnOpen.addEventListener('click', function () {
+                openModal();
+                showPanel('login');
+            });
+
+            btnClose.addEventListener('click', closeModal);
+            backdrop.addEventListener('click', closeModal);
+
+            tabLogin.addEventListener('click', function () { showPanel('login'); });
+            tabRegister.addEventListener('click', function () { showPanel('register'); });
+
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape' && modal.classList.contains('is-open')) closeModal();
+            });
+
+            btnLogout.addEventListener('click', function (e) {
+                e.preventDefault();
+                api('/api/logout', { method: 'POST', headers: { 'Content-Type': 'application/json' } })
+                    .then(function () { refreshMe(); });
+            });
+
+            formLogin.addEventListener('submit', function (e) {
+                e.preventDefault();
+                var fd = new FormData(formLogin);
+                var body = { email: fd.get('email'), password: fd.get('password') };
+                api('/api/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(body),
+                })
+                    .then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
+                    .then(function (x) {
+                        if (x.ok) {
+                            setMsg('Đăng nhập thành công.');
+                            refreshMe();
+                            closeModal();
+                        } else {
+                            setMsg(x.j.error || 'Đăng nhập thất bại.', true);
+                        }
+                    })
+                    .catch(function () {
+                        setMsg('Không kết nối được máy chủ (API).' + serverHintLine(), true);
+                    });
+            });
+
+            formRegister.addEventListener('submit', function (e) {
+                e.preventDefault();
+                var fd = new FormData(formRegister);
+                var body = {
+                    email: fd.get('email'),
+                    password: fd.get('password'),
+                    full_name: fd.get('full_name'),
+                };
+                api('/api/register', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(body),
+                })
+                    .then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
+                    .then(function (x) {
+                        if (x.ok) {
+                            setMsg('Đăng ký thành công.');
+                            refreshMe();
+                            closeModal();
+                        } else {
+                            setMsg(x.j.error || 'Đăng ký thất bại.', true);
+                        }
+                    })
+                    .catch(function () {
+                        setMsg('Không kết nối được máy chủ (API).' + serverHintLine(), true);
+                    });
+            });
+
+            refreshMe();
+        })();
     </script>
 
+    <script src="js/catalog.js"></script>
+    <script src="js/site-search.js"></script>
 </body>
 
 </html>
